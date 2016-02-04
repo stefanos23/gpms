@@ -1,4 +1,26 @@
+/*
+ * SystemRegister.java 1.1 2016/02/03
+ * 
+ * Copyright (c) 2015 University of York.
+ * All rights reserved. 
+ *
+ */
+
 package gpms.codex.mock.server;
+
+/**
+*
+* SystemRegister class is the main (mock)server class.
+* SystemRegister is used to register or login a user.
+*
+* @author TeamCodex
+* @version 1.1 First relocation
+* @see UserProfile
+* @see DatabaseInterface
+* @see LocationNotSupportedException
+* @see BadInputException
+* 
+*/
 
 public class SystemRegister{
 

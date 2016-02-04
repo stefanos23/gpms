@@ -1,5 +1,5 @@
 /*
- * @(#) MacAuthenticationApp.java 1.1 2016/02/03
+ * MacAuthenticationApp.java 1.1 2016/02/03
  * 
  * Copyright (c) 2015 University of York.
  * All rights reserved. 
@@ -10,11 +10,10 @@ package gpms.codex.app;
 
 import javax.swing.SwingUtilities;
 
-/*
+/**
  *
- * MacAuthenticationApp class that does intitialize the authentication app. 
- * <p>
- * MacAuthenticationApp is used to create an new instance of the authentication app.
+ * MacAuthenticationApp class that starts the authentication application. 
+ * MacAuthenticationApp contain the main of the application and starts the login screen. 
  *
  * @author TeamCodex
  * @version 1.1 First relocation
@@ -24,6 +23,11 @@ import javax.swing.SwingUtilities;
 
 public class MacAuthenticationApp {
 
+	/**
+	 * The main method for the authentication application is here.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		SwingUtilities.invokeLater(new Runnable() {

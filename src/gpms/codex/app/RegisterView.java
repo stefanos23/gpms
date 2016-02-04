@@ -1,3 +1,11 @@
+/*
+ * MacAuthenticationApp.java 1.1 2016/02/03
+ * 
+ * Copyright (c) 2015 University of York.
+ * All rights reserved. 
+ *
+ */
+
 package gpms.codex.app;
 
 import java.awt.FlowLayout;
@@ -7,11 +15,23 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
+
+/**
+*
+* RegisterView class is the view of the register process. 
+* RegisterView is used to create a representation of the register process.
+*
+* @author TeamCodex
+* @version 1.1 First relocation
+* @see JFrame
+* @see JLabel
+* @see JButton
+* @see JPanel
+* @see JTextField
+* 
+*/
 
 public class RegisterView {
 
@@ -23,7 +43,6 @@ public class RegisterView {
     private JLabel passLabel;
     private JLabel realNameLabel;
     private JLabel mailLabel;
-    private JLabel shortBioLabel;
     private JTextField textField;
     private JTextField passwordField;
     private JTextField realNameField;
@@ -44,62 +63,32 @@ public class RegisterView {
         frame.setLayout(new FlowLayout());
         panel = new JPanel(new GridLayout(8,1));
         panel2 = panel;
-        //panel2 = new JPanel(new GridLayout(4,1));
         buttonPanel = new JPanel(new GridLayout(1,2));
         
-        //label 
         label = new JLabel("Username:  ");
-        //frame.add(label,BorderLayout.CENTER);
         panel.add(label);
-        
-    //button
      
       textField = new JTextField( 15);
-      //frame.add(textField);
       panel2.add(textField);
       
-    //label 
       passLabel = new JLabel("Password:  ");
-      //frame.add(label,BorderLayout.CENTER);
       panel.add(passLabel);
       
       passwordField = new JTextField(15);
       panel2.add(passwordField);
-      //frame.add(passwordField, BorderLayout.SOUTH);
       
-      
-    //label 
       realNameLabel = new JLabel("RealName:  ");
-      //frame.add(label,BorderLayout.CENTER);
       panel.add(realNameLabel);
       
       realNameField = new JTextField(15);
       panel2.add(realNameField);
-      //frame.add(passwordField, BorderLayout.SOUTH);
       
-    //label 
       mailLabel = new JLabel("Mail:  ");
-      //frame.add(label,BorderLayout.CENTER);
       panel.add(mailLabel);
       
       mailField = new JTextField(15);
       panel2.add(mailField);
-      //frame.add(passwordField, BorderLayout.SOUTH);//label 
       
-      shortBioLabel = new JLabel("ShortBio:  ");
-      //frame.add(label,BorderLayout.CENTER);
-      
-      
-      shortBioArea = new JTextArea(4,15);
-      shortBioArea.setLineWrap(true);
-      //shortBioArea.setWrapStyleWord(true);
-      //shortBioArea.setVerticalScrollBarPolicy(
-              //JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-      //shortBioArea.setPreferredSize(new Dimension(250, 250));
-      JScrollPane scrollPane = new JScrollPane(shortBioArea);
-      //scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER );
-      //shortBioArea.set
-      //frame.add(passwordField, BorderLayout.SOUTH);
       
       
       registerButton = new JButton("register"); 
@@ -111,9 +100,7 @@ public class RegisterView {
         
       frame.add(panel);
       frame.add(panel2);
-      //frame.add(panel_for_bio);
       frame.add(buttonPanel);
-     //frame.pack();
         frame.setVisible(true);
 			
 	}

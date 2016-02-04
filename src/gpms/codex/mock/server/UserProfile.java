@@ -1,4 +1,23 @@
+/*
+ * UserProfile.java 1.1 2016/02/03
+ * 
+ * Copyright (c) 2015 University of York.
+ * All rights reserved. 
+ *
+ */
+
 package gpms.codex.mock.server;
+
+/**
+*
+* UserProfile class is a class were the user's informtion are stored and maintained.
+* UserProfile is used when the user is using our system, so his information can be maintained on real time.
+*
+* @author TeamCodex
+* @version 1.1 First relocation
+* @see Exception
+* 
+*/
 
 public class UserProfile {
 

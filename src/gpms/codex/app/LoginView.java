@@ -1,5 +1,5 @@
 /*
- * @(#) LoginView.java 1.1 2016/02/03
+ * LoginView.java 1.1 2016/02/03
  * 
  * Copyright (c) 2015 University of York.
  * All rights reserved. 
@@ -20,20 +20,27 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/*
-*
-* MacAuthenticationApp class that does intitialize the authentication app. 
-* <p>
-* MacAuthenticationApp is used to create an new instance of the authentication app.
-*
-* @author TeamCodex
-* @version 1.1 First relocation
-* @see UIManager
-* @see JFrame
-* 
-*/ 
+/**
+ * 
+ * LoginView class is the view of the login process. LoginView is used to create
+ * a representation of the login process.
+ * 
+ * @author TeamCodex
+ * @version 1.1 First relocation
+ * @see UIManager
+ * @see JFrame
+ * @see JLabel
+ * @see JFrame
+ * @see JTextField
+ * @see JPasswordField
+ * @see JButton
+ * 
+ */
 
 public class LoginView {
+
+	private final int width = 300;
+	private final int height = 130;
 
 	private JFrame frame;
 	private JPanel panel;
@@ -49,18 +56,18 @@ public class LoginView {
 
 	public LoginView() {
 
-		// JFrame.setDefaultLookAndFeelDecorated(true);
+		//select the design of the view using UIManager's LookAndFeel method.
 		try {
 			UIManager.setLookAndFeel(UIManager
 					.getCrossPlatformLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException
 				| IllegalAccessException | UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//create the frame and initialise it
 		frame = new JFrame("Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(300, 130);
+		frame.setSize(width, height);
 		frame.setResizable(false);
 		// set my frame to start not in the corner
 		frame.setLocation(200, 200);
@@ -70,27 +77,18 @@ public class LoginView {
 		panel2 = new JPanel(new GridLayout(2, 1));
 		buttonPanel = new JPanel(new GridLayout(1, 3));
 
-		// label
 		label = new JLabel("Username:  ");
-		// frame.add(label,BorderLayout.CENTER);
 		panel.add(label);
 
-		// button
-
 		textField = new JTextField(15);
-		// frame.add(textField);
 		panel2.add(textField);
 
-		// label
 		passLabel = new JLabel("Password:  ");
-		// frame.add(label,BorderLayout.CENTER);
 		panel.add(passLabel);
 
 		passwordField = new JPasswordField(15);
 		panel2.add(passwordField);
-		// frame.add(passwordField, BorderLayout.SOUTH);
 
-		// add buttons
 		loginButton = new JButton("login");
 		buttonPanel.add(loginButton);
 
@@ -103,39 +101,85 @@ public class LoginView {
 		frame.add(panel);
 		frame.add(panel2);
 		frame.add(buttonPanel);
-		// frame.pack();
 		frame.setVisible(true);
 
 	}
+	
+	/**
+	 * This method is a getter for the username's field.
+	 * 
+	 * @return the username
+	 */
 
 	public JTextField getTextField() {
 		return textField;
 	}
+	
+	/**
+	 * This method is a getter for the user's password field
+	 * 
+	 * @return the user's password field
+	 */
 
 	public JPasswordField getPasswordField() {
 		return passwordField;
 	}
+	
+	/**
+	 * This method is a getter for the login button
+	 * 
+	 * @return the login button
+	 */
 
 	public JButton getLoginButton() {
 		return loginButton;
 	}
+	
+	/**
+	 * This method is a getter for the exit button
+	 * 
+	 * @return the exit button
+	 */
 
 	public JButton getExitButton() {
 		return exitButton;
 	}
+	
+	/**
+	 * This method is a getter for the register button
+	 * 
+	 * @return the register button
+	 */
 
 	public JButton getRegisterButton() {
 		return registerButton;
 	}
+	
+	/**
+	 * This method is a setter for the username field
+	 * 
+	 * @return the register button
+	 */
 
 	public void setTextField(JTextField textField) {
 		this.textField = textField;
 	}
+	
+	/**
+	 * This method is a setter for the password field
+	 * 
+	 */
 
 	public void setPasswordField(JPasswordField passwordField) {
 		this.passwordField = passwordField;
 	}
 
+	/**
+	 * This method is a getter for the login frame
+	 * 
+	 * @return the login frame
+	 */
+	
 	public JFrame getFrame() {
 		return frame;
 	}

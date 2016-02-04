@@ -1,5 +1,5 @@
 /*
- * @(#) HomeController.java 1.1 2016/02/03
+ * HomeController.java 1.1 2016/02/03
  * 
  * Copyright (c) 2015 University of York.
  * All rights reserved. 
@@ -11,32 +11,36 @@ package gpms.codex.app;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-/*
- *
- * HomeController class is the controller for the home View
- * <p>
- * MacAuthenticationApp is controlling all the user inputs and is responsible for calling the 
- * appropriate system(mock server) operations.
- *
+/**
+ * 
+ * HomeController class is the controller(mcv pattern) of the home screen phase.
+ * HomeController is used to control the home screen phase.
+ * 
  * @author TeamCodex
  * @version 1.1 First relocation
  * @see HomeView
+ * @see ActionListener
+ * 
  */
+
 
 public class HomeController {
 
-	private HomeModel model;
 	private HomeView view;
 	private ActionListener actionListener;
 
-	public HomeController(HomeModel model, HomeView view) {
-		this.model = model;
+	public HomeController(HomeView view) {
 		this.view = view;
 
 	}
 
+	/**
+	 * Control methods attach listeners to the home view, and handles all the requests.
+	 *
+	 */
+	
 	public void contol() {
+		//attach an actionListener to hear for events and perform actions based on those events
 		actionListener = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 
@@ -54,22 +58,15 @@ public class HomeController {
 				}
 			}
 		};
-
-		/*
-		 * this action listener base code if for
-		 * http://www.java2s.com/Code/Java/
-		 * Swing-JFC/JListselectionchangedlistener.htm
-		 */
-
 		view.getExit().addActionListener(actionListener);
-		// view.getProfile().addActionListener(actionListener);
-		// view.getMsg().addActionListener(actionListener);
-		// view.getInbx().addActionListener(actionListener);
-
 	}
 
+	/**
+	 * Exit method exits the program.
+	 */
+	
 	private void exit() {
-
+		//dispose the frame
 		view.getFrame().dispose();
 		System.exit(0);
 	}

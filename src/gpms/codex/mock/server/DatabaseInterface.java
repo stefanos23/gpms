@@ -1,3 +1,11 @@
+/*
+ * DatabaseInterface.java 1.1 2016/02/03
+ * 
+ * Copyright (c) 2015 University of York.
+ * All rights reserved. 
+ *
+ */
+
 package gpms.codex.mock.server;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +14,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+*
+* DatabaseInterface class is a class that handles all the connections with the database.
+* DatabaseInterface is used to register or obtain user's accounts.
+*
+* @author TeamCodex
+* @version 1.1 First relocation
+* @see H2.database
+* 
+*/
 
 public class DatabaseInterface {
 
