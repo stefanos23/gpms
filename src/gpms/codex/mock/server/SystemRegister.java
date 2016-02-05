@@ -9,62 +9,78 @@
 package gpms.codex.mock.server;
 
 /**
-*
-* SystemRegister class is the main (mock)server class.
-* SystemRegister is used to register or login a user.
-*
-* @author TeamCodex
-* @version 1.1 First relocation
-* @see UserProfile
-* @see DatabaseInterface
-* @see LocationNotSupportedException
-* @see BadInputException
-* 
-*/
+ * 
+ * SystemRegister class is the main (mock)server class. SystemRegister is used
+ * to register or login a user.
+ * 
+ * @author TeamCodex
+ * @version 1.1 First relocation
+ * @see UserProfile
+ * @see DatabaseInterface
+ * @see LocationNotSupportedException
+ * @see BadInputException
+ * 
+ */
 
-public class SystemRegister{
+public class SystemRegister {
 
-	public void login_with_location(String username, String password, String location) throws BadInputException, LocationNotSupportedException{
-		
+	/**
+	 * With this method the user can login using their credentials and by using
+	 * a specific and registered device.
+	 * 
+	 * @param username
+	 * @param password
+	 * @param location
+	 * @throws BadInputException
+	 * @throws LocationNotSupportedException
+	 */
+
+	public void loginWithLocation(String username, String password, String location)
+	throws BadInputException, LocationNotSupportedException {
+
 		DatabaseInterface db = new DatabaseInterface();
 		UserProfile user = db.getProfileByName(username);
-		
-		if(user == null){
+
+		// checks for inputs validity
+		if (user == null) {
 			Throwable t = new IllegalArgumentException("Bad Input");
-            throw new BadInputException("There in no such user", t);
+			throw new BadInputException("There in no such user", t);
 		}
-		if(!password.equals(user.getPassword())){
+		if (!password.equals(user.getPassword())) {
 			Throwable t = new IllegalArgumentException("Bad Input");
-            throw new BadInputException("Wrong username", t);
+			throw new BadInputException("Wrong username", t);
 		}
-		if(!location.equals(user.getlocation())){
+		if (!location.equals(user.getlocation())) {
 			Throwable t = new IllegalArgumentException("Bad Input");
-            throw new LocationNotSupportedException("Your device is not authorized", t);
+			throw new LocationNotSupportedException(
+					"Your device is not authorized", t);
 		}
 	}
-	
-	public void check_usename_availability(String username){
-		
+
+	// to be implemented if needed
+	public void checkUsenameAvailability(String username) {
+
 	}
-	
-	public void register_with_location(String username, String password, String mac_address){
-		
+
+	/**
+	 * With this method the user can register to the system using a username, a
+	 * password and a specific mac address.
+	 * 
+	 * @param username
+	 * @param password
+	 * @param mac_address
+	 */
+
+	public void registerWithLocation(String username, String password,
+			String mac_address) {
+
 		/*
-		 * Here we must have input control
+		 * Here we will put input control if the customer asks for that.
 		 */
-		
+
 		DatabaseInterface db = new DatabaseInterface();
 		db.createUserAccountWithLocationInfo(username, password, mac_address);
-		
+
 	}
-	
-	public void register_with_nfc(){
-		
-	}
-	
-	public void registe_with_images(String... imgs){
-		
-	}
-	
-	
+
 }

@@ -181,7 +181,7 @@ public class RegisterController {
 		String mac = localinfo.getMacAddressFromIp();
 		//connect to the server to register
 		SystemRegister systemRegister = new SystemRegister();
-		systemRegister.register_with_location(view.getTextField().getText(),
+		systemRegister.registerWithLocation(view.getTextField().getText(),
 				view.getPasswordField().getText(), mac);
 		view.getFrame().dispose();
 

@@ -34,7 +34,7 @@ public class HomeView {
 
 	private final int width = 410;
 	private final int height = 226;
-	
+
 	private JFrame frame;
 	JMenuBar mBar;
 	JMenu menu1;
@@ -45,17 +45,16 @@ public class HomeView {
 	JMenuItem profile;
 
 	public HomeView() {
-		
-		//create initial frame and initialize
+
+		// create initial frame and initialize
 		frame = new JFrame("PeerToPeerSnapText");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, height);
 		frame.setResizable(false);
-		
+
 		// set my frame to start not in the corner
 		frame.setLocation(200, 200);
 		frame.setLayout(new BorderLayout());
-
 
 		mBar = new JMenuBar();
 		frame.setJMenuBar(mBar);
@@ -78,7 +77,7 @@ public class HomeView {
 	 * 
 	 * @return
 	 */
-	
+
 	public JMenuItem getExit() {
 		return exit;
 	}
@@ -88,7 +87,7 @@ public class HomeView {
 	 * 
 	 * @return
 	 */
-	
+
 	public JFrame getFrame() {
 		return frame;
 	}

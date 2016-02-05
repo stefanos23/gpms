@@ -56,7 +56,7 @@ public class LoginView {
 
 	public LoginView() {
 
-		//select the design of the view using UIManager's LookAndFeel method.
+		// select the design of the view using UIManager's LookAndFeel method.
 		try {
 			UIManager.setLookAndFeel(UIManager
 					.getCrossPlatformLookAndFeelClassName());
@@ -64,7 +64,7 @@ public class LoginView {
 				| IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		//create the frame and initialise it
+		// create the frame and initialise it
 		frame = new JFrame("Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, height);
@@ -104,7 +104,7 @@ public class LoginView {
 		frame.setVisible(true);
 
 	}
-	
+
 	/**
 	 * This method is a getter for the username's field.
 	 * 
@@ -114,7 +114,7 @@ public class LoginView {
 	public JTextField getTextField() {
 		return textField;
 	}
-	
+
 	/**
 	 * This method is a getter for the user's password field
 	 * 
@@ -124,7 +124,7 @@ public class LoginView {
 	public JPasswordField getPasswordField() {
 		return passwordField;
 	}
-	
+
 	/**
 	 * This method is a getter for the login button
 	 * 
@@ -134,7 +134,7 @@ public class LoginView {
 	public JButton getLoginButton() {
 		return loginButton;
 	}
-	
+
 	/**
 	 * This method is a getter for the exit button
 	 * 
@@ -144,7 +144,7 @@ public class LoginView {
 	public JButton getExitButton() {
 		return exitButton;
 	}
-	
+
 	/**
 	 * This method is a getter for the register button
 	 * 
@@ -154,7 +154,7 @@ public class LoginView {
 	public JButton getRegisterButton() {
 		return registerButton;
 	}
-	
+
 	/**
 	 * This method is a setter for the username field
 	 * 
@@ -164,7 +164,7 @@ public class LoginView {
 	public void setTextField(JTextField textField) {
 		this.textField = textField;
 	}
-	
+
 	/**
 	 * This method is a setter for the password field
 	 * 
@@ -179,7 +179,7 @@ public class LoginView {
 	 * 
 	 * @return the login frame
 	 */
-	
+
 	public JFrame getFrame() {
 		return frame;
 	}

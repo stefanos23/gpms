@@ -41,7 +41,8 @@ public class LoginController {
 	}
 
 	/**
-	 * Control methods attach listeners to the login view, and handles all the requests.
+	 * Control methods attach listeners to the login view, and handles all the
+	 * requests.
 	 * 
 	 */
 
@@ -51,11 +52,11 @@ public class LoginController {
 
 				String menuItemActivated = actionEvent.getActionCommand();
 				if (menuItemActivated.equals("exit")) {
-					//exits the program
+					// exits the program
 					view.getFrame().dispose();
 					System.exit(0);
 				} else if (menuItemActivated.equals("login")) {
-					//evaluate the login credentials of the user
+					// evaluate the login credentials of the user
 					try {
 						checkLogin();
 					} catch (BadInputException e) {
@@ -70,7 +71,7 @@ public class LoginController {
 						view.getPasswordField().setText("");
 					}
 				} else if (menuItemActivated.equals("register")) {
-					//initialize the register process
+					// initialize the register process
 					System.out.println("hew");
 					RegisterView view = new RegisterView();
 					RegisterController controller = new RegisterController(view);
@@ -125,7 +126,7 @@ public class LoginController {
 		String macAddress = mac.getMacAddressFromIp();
 		// register using the mock server and the mac address
 		SystemRegister systemRegister = new SystemRegister();
-		systemRegister.login_with_location(user, pass, macAddress);
+		systemRegister.loginWithLocation(user, pass, macAddress);
 
 		view.getFrame().dispose();
 		invokeMainService();
