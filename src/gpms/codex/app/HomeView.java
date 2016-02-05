@@ -16,6 +16,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * 
@@ -46,6 +48,14 @@ public class HomeView {
 
 	public HomeView() {
 
+		// select the design of the view using UIManager's LookAndFeel method.
+		try {
+			UIManager.setLookAndFeel(UIManager
+					.getCrossPlatformLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
 		// create initial frame and initialize
 		frame = new JFrame("PeerToPeerSnapText");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
