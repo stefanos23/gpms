@@ -123,6 +123,44 @@ public class DatabaseInterface {
 	}
 
 	/**
+	 * This method checks the database if the existing username already exists
+	 * 
+	 * @param userName
+	 * @return true if the input exists in the database
+	 */
+
+	protected boolean checkUsernameExists(String userName) {
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			Connection conn = DriverManager.getConnection(DBPATH, "sa", "sa");
+
+			PreparedStatement prepStmt = conn
+					.prepareStatement("SELECT Password"
+							+ " FROM USERACCOUNT WHERE userName = ?");
+			prepStmt.setString(1, userName);
+			ResultSet rs = prepStmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+
+			prepStmt.close();
+			conn.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // (1)
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+	/**
 	 * This is a main class that needs to be run only the first time we use the
 	 * system to initialise the batabase's raws.
 	 * 

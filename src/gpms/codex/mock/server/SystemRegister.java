@@ -59,7 +59,7 @@ public class SystemRegister {
 
 	// to be implemented if needed
 	public void checkUsenameAvailability(String username) {
-
+			
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class SystemRegister {
 	 * @param mac_address
 	 */
 
-	public void registerWithLocation(String username, String password,
+	public boolean registerWithLocation(String username, String password,
 			String mac_address) {
 
 		/*
@@ -79,7 +79,13 @@ public class SystemRegister {
 		 */
 
 		DatabaseInterface db = new DatabaseInterface();
+		if( db.checkUsernameExists(username)){
+			//if there is already an account with the selected database return false
+			return false;
+		}
+		
 		db.createUserAccountWithLocationInfo(username, password, mac_address);
+		return true;
 
 	}
 

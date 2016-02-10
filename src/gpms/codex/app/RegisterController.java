@@ -70,22 +70,22 @@ public class RegisterController {
 	 * 
 	 * @return
 	 */
-	
+
 	private boolean checkInputs() {
 
 		String userName = view.getTextField().getText();
-		//username should not be empty
+		// username should not be empty
 		if (userName.equals("")) {
 			JOptionPane.showMessageDialog(null, "userName Empty");
 			return false;
 		}
-		//username should consist of letters and numbers
+		// username should consist of letters and numbers
 		if (!userName.matches("^[0-9a-zA-Z]+$")) {
 			JOptionPane.showMessageDialog(null,
 					"UserName should consist of letters and numbers");
 			return false;
 		}
-		//username should be at most 16 alphanumeric characters
+		// username should be at most 16 alphanumeric characters
 		if (userName.length() > 16) {
 			JOptionPane
 					.showMessageDialog(null,
@@ -95,41 +95,41 @@ public class RegisterController {
 		}
 
 		String email = view.getMailField().getText();
-		//email should not be empty
+		// email should not be empty
 		if (email.equals("")) {
 			JOptionPane.showMessageDialog(null, "Email Empty");
 			return false;
 		}
-		//email should have a standart format e.g. name@something.something
+		// email should have a standart format e.g. name@something.something
 		if (!validateMail(email)) {
 			JOptionPane.showMessageDialog(null, "Email Wrong format");
 			return false;
 		}
 		String password = view.getPasswordField().getText();
-		//password should not be empty
+		// password should not be empty
 		if (password.equals("")) {
 			JOptionPane.showMessageDialog(null, "Password Empty");
 			return false;
 		}
-		//password should be no more than 16 alphanumerics
+		// password should be no more than 16 alphanumerics
 		if (password.length() < 1 || password.length() > 16) {
 			JOptionPane.showMessageDialog(null,
 					"Password should be between 1 and 16 characters");
 			return false;
 		}
 		String realName = view.getRealNameField().getText();
-		//realname should not be empty
+		// realname should not be empty
 		if (realName.equals("")) {
 			JOptionPane.showMessageDialog(null, "RealName Empty");
 			return false;
 		}
-		//realname must contain only letters
+		// realname must contain only letters
 		if (!validate_realName(realName)) {
 			JOptionPane.showMessageDialog(null,
 					"RealName must contains only letters");
 			return false;
 		}
-		//realname should not be more than 16 characters
+		// realname should not be more than 16 characters
 		if (realName.length() < 1 || realName.length() > 16) {
 			JOptionPane.showMessageDialog(null,
 					"RealName should be between 1 and 16 characters");
@@ -141,14 +141,15 @@ public class RegisterController {
 	}
 
 	/**
-	 *This method checks if the user's mails has a standard format like id@something.something
+	 * This method checks if the user's mails has a standard format like
+	 * id@something.something
 	 * 
 	 * @param email
 	 * @return
 	 */
-	
+
 	private static boolean validateMail(String email) {
-		//the regular expression defines the standard format
+		// the regular expression defines the standard format
 		Pattern valid_mail = Pattern.compile(
 				"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
 				Pattern.CASE_INSENSITIVE);
@@ -162,15 +163,16 @@ public class RegisterController {
 	 * @param email
 	 * @return
 	 */
-	
+
 	private static boolean validate_realName(String email) {
 		Pattern valid = Pattern.compile("^[A-Z]+$", Pattern.CASE_INSENSITIVE);
 		Matcher match_mail = valid.matcher(email);
 		return match_mail.find();
 	}
-	
+
 	/**
-	 * This method takes the users information and register the user using the (mock)server.
+	 * This method takes the users information and register the user using the
+	 * (mock)server.
 	 * 
 	 */
 
@@ -179,11 +181,15 @@ public class RegisterController {
 		// get the mac address
 		LocalInfo localinfo = new LocalInfo();
 		String mac = localinfo.getMacAddressFromIp();
-		//connect to the server to register
+		// connect to the server to register
 		SystemRegister systemRegister = new SystemRegister();
-		systemRegister.registerWithLocation(view.getTextField().getText(),
-				view.getPasswordField().getText(), mac);
-		view.getFrame().dispose();
+		if (systemRegister.registerWithLocation(view.getTextField().getText(),
+				view.getPasswordField().getText(), mac)) {
+			view.getFrame().dispose();
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"Username in use, please choose a different one");
+		}
 
 	}
 

@@ -10,7 +10,7 @@ package gpms.codex.mock.server;
 
 /**
 *
-* UserProfile class is a class were the user's informtion are stored and maintained.
+* UserProfile class is a class where the user's information are stored and maintained.
 * UserProfile is used when the user is using our system, so his information can be maintained on real time.
 *
 * @author TeamCodex
