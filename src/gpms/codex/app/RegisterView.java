@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -81,7 +82,7 @@ public class RegisterView {
 		passLabel = new JLabel("Password:  ");
 		panel.add(passLabel);
 
-		passwordField = new JTextField(15);
+		passwordField = new JPasswordField(15);
 		panel2.add(passwordField);
 
 		realNameLabel = new JLabel("RealName:  ");
