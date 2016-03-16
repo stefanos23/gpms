@@ -31,7 +31,7 @@ public class DatabaseInterface {
 	static final String DBNAME = "second_factor_db";
 	static final String DBPATH = "jdbc:h2:~/" + DBNAME;
 
-	protected UserProfile getProfileByName(String username) {
+	public UserProfile getProfileByName(String username) {
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -44,11 +44,13 @@ public class DatabaseInterface {
 			prepStmt.setString(1, username);
 			ResultSet rs = prepStmt.executeQuery();
 			UserProfile user = new UserProfile();
+			int flag = 0;
 			if (rs.next()) {
+				flag = 1;
 				user.setPassword(rs.getString(1));
 				user.setLocation(rs.getString(2));
 			}
-
+			if (flag == 0) return null;
 			prepStmt.close();
 			conn.close();
 
@@ -97,7 +99,7 @@ public class DatabaseInterface {
 	 * @param mac_address
 	 */
 
-	protected void createUserAccountWithLocationInfo(String username,
+	public void createUserAccountWithLocationInfo(String username,
 			String password, String mac_address) {
 
 		try {

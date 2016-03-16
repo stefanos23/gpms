@@ -124,7 +124,7 @@ public class RegisterController {
 			return false;
 		}
 		// realname must contain only letters
-		if (!validate_realName(realName)) {
+		if (!validateRealName(realName)) {
 			JOptionPane.showMessageDialog(null,
 					"RealName must contains only letters");
 			return false;
@@ -148,7 +148,10 @@ public class RegisterController {
 	 * @return
 	 */
 
-	private static boolean validateMail(String email) {
+	public static boolean validateMail(String email) {
+		if (email == null) {
+			return false;
+		}
 		// the regular expression defines the standard format
 		Pattern valid_mail = Pattern.compile(
 				"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
@@ -164,7 +167,10 @@ public class RegisterController {
 	 * @return
 	 */
 
-	private static boolean validate_realName(String email) {
+	public static boolean validateRealName(String email) {
+		if (email == null) {
+			return false;
+		}
 		Pattern valid = Pattern.compile("^[A-Z]+$", Pattern.CASE_INSENSITIVE);
 		Matcher match_mail = valid.matcher(email);
 		return match_mail.find();
