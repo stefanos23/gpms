@@ -57,7 +57,7 @@ public class HomeView {
 			e.printStackTrace();
 		}
 		// create initial frame and initialize
-		frame = new JFrame("UserNotificationApp");
+		frame = new JFrame("MacAuthentication");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, height);
 		frame.setResizable(false);
